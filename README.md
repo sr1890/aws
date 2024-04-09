@@ -1,33 +1,54 @@
-# FREE AWS Cloud Project Bootcamp
+# AWS CLI v2
 
-- Application: Cruddur
-- Cohort: 2023-A1
+This bundle contains a built executable of the AWS CLI v2.
 
-This is the starting codebase that will be used in the FREE AWS Cloud Project Bootcamp 2023
+## Installation
 
-![Cruddur Graphic](_docs/assets/cruddur-banner.jpg)
+To install the AWS CLI v2, run the `install` script:
+```
+$ sudo ./install 
+You can now run: /usr/local/bin/aws --version
+```
+This will install the AWS CLI v2 at `/usr/local/bin/aws`.  Assuming
+`/usr/local/bin` is on your `PATH`, you can now run:
+```
+$ aws --version
+```
 
-![Cruddur Screenshot](_docs/assets/cruddur-screenshot.png)
 
-## Instructions
+### Installing without sudo
 
-At the start of the bootcamp you need to create a new Github Repository from this template.
+If you don't have ``sudo`` permissions or want to install the AWS
+CLI v2 only for the current user, run the `install` script with the `-b`
+and `-i` options:
+```
+$ ./install -i ~/.local/aws-cli -b ~/.local/bin
+``` 
+This will install the AWS CLI v2 in `~/.local/aws-cli` and create
+symlinks for `aws` and `aws_completer` in `~/.local/bin`. For more
+information about these options, run the `install` script with `-h`:
+```
+$ ./install -h
+```
 
-## Journaling Homework
+### Updating
 
-The `/journal` directory contains
+If you run the `install` script and there is a previously installed version
+of the AWS CLI v2, the script will error out. To update to the version included
+in this bundle, run the `install` script with `--update`:
+```
+$ sudo ./install --update
+```
 
-- [ ] [Week 0](journal/week0.md)
-- [ ] [Week 1](journal/week1.md)
-- [ ] [Week 2](journal/week2.md)
-- [ ] [Week 3](journal/week3.md)
-- [ ] [Week 4](journal/week4.md)
-- [ ] [Week 5](journal/week5.md)
-- [ ] [Week 6](journal/week6.md)
-- [ ] [Week 7](journal/week7.md)
-- [ ] [Week 8](journal/week8.md)
-- [ ] [Week 9](journal/week9.md)
-- [ ] [Week 10](journal/week10.md)
-- [ ] [Week 11](journal/week11.md)
-- [ ] [Week 12](journal/week12.md)
-- [ ] [Week 13](journal/week13.md)
+
+### Removing the installation
+
+To remove the AWS CLI v2, delete the its installation and symlinks:
+```
+$ sudo rm -rf /usr/local/aws-cli
+$ sudo rm /usr/local/bin/aws
+$ sudo rm /usr/local/bin/aws_completer
+```
+Note if you installed the AWS CLI v2 using the `-b` or `-i` options, you will
+need to remove the installation and the symlinks in the directories you
+specified.
